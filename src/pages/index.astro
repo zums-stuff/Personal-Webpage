@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import SkillCard from '../components/SkillCard.astro';
 
-// --- PROFILE DATA ---
+// --- DATA ---
 
 const socialLinks = [
   { 
@@ -102,7 +102,7 @@ const experience = [
   }
 ];
 
-const education = [	
+const education = [   
   {
     role: "Bachelor of Computer Engineering",
     company: "UNAM School of Engineering",
@@ -110,19 +110,18 @@ const education = [
     description: "Focused on Software Engineering, Algorithms, and System Architecture. Active member of the Competitive Programming Club."
   },
   {
-	role: "High School Diploma",
-	company: "National Preparatory School No. 9 Pedro de Alba (UNAM)",
-	date: "Aug 2021 - Jun 2024",
-	description: "Specialized in Physics and Mathematics (Area 1). Graduated with a strong foundation in calculus and scientific reasoning."
+    role: "High School Diploma",
+    company: "National Preparatory School No. 9 Pedro de Alba (UNAM)",
+    date: "Aug 2021 - Jun 2024",
+    description: "Specialized in Physics and Mathematics (Area 1). Graduated with a strong foundation in calculus and scientific reasoning."
   },
 ];
 
-// --- PROJECTS DATA (Con 'status' y 'color') ---
 const projects = [
   {
     title: "Meteor Atlas (NASA Space Apps)",
     status: "FINISHED",
-    color: "#fbbf24", // Dorado/Amarillo (Winner)
+    color: "#fbbf24", 
     description: "Simulation and analysis of asteroid impacts using Python, Flask, and the NASA API. Winner of local/global participation.",
     tags: ["Python", "Flask", "NASA API"],
     link: "https://github.com/zums-stuff/Meteor-Madness"
@@ -130,7 +129,7 @@ const projects = [
   {
     title: "CPCFI Learning Platform",
     status: "DEPLOYED AND BUILDING",
-    color: "#10b981", // Verde Esmeralda (Deployed)
+    color: "#8b5cf6", 
     description: "Static website deployed on GitHub Pages to provide curated learning materials and editorials for competitive programming enthusiasts.",
     tags: ["HTML", "CSS", "GitHub Pages"],
     link: "https://zums-stuff.github.io/CPCFI-Webpage/"
@@ -138,7 +137,7 @@ const projects = [
   {
     title: "2D Animation Engine",
     status: "FINISHED",
-    color: "#3b82f6", // Azul Brillante (Finished)
+    color: "#10b981", 
     description: "Sequential animation system implemented in C++ and OpenGL. Applies linear algebra concepts (transformation matrices, vector spaces) to computer graphics.",
     tags: ["C++", "OpenGL", "Linear Algebra"],
     link: "https://github.com/zums-stuff"
@@ -146,7 +145,7 @@ const projects = [
   {
     title: "Competitive Programming Solutions",
     status: "ACTIVE REPO",
-    color: "#8b5cf6", // Violeta (Active Repo)
+    color: "#8b5cf6", 
     description: "Automated massive repository with optimized solutions for Codeforces, LeetCode, and CSES. Personal reference for algorithms and data structures.",
     tags: ["C++", "Algorithms", "Data Structures"],
     link: "https://github.com/zums-stuff/Competitive-Programming"
@@ -154,7 +153,7 @@ const projects = [
   {
     title: "D&D-like Game System",
     status: "PROTOTYPE (NOT DEPLOYED)",
-    color: "#f43f5e", // Rosa/Rojo (Prototype)
+    color: "#f43f5e", 
     description: "RPG game architecture built in Unity with basic multiplayer support, designed from scratch using C# and standard packages.",
     tags: ["Unity", "C#", "Game Dev"],
     link: "https://github.com/zums-stuff"
@@ -163,175 +162,257 @@ const projects = [
 ---
 
 <Layout title="Jafet 'Zum' Hernandez | Portfolio">
-  <main class="container">
+  
+  <nav class="top-nav">
+    <div class="nav-container">
+        <button class="nav-item active" data-target="home">Home</button>
+        <button class="nav-item" data-target="skills">Skills</button>
+        <button class="nav-item" data-target="resume">Resume</button>
+        <button class="nav-item" data-target="portfolio">Portfolio</button>
+    </div>
+  </nav>
+
+  <main class="container main-content">
     
-    <section class="hero">
-        <div class="profile-header">
-            <h1>Jafet <span class="text-gradient">"Zum"</span> Hernández</h1>
-            <p class="tagline"> Competitive Programmer & WIP Computer Engineer | UNAM ᴍx</p>
-            
-            <div class="bio-text">
-                <p>
-                    Computer Engineering student passionate about C++, algorithms, and Competitive Programming. 
-                    Currently competing in ICPC and building educational tools for the community.
-                </p>
-            </div>
-            
-            <div class="social-links">
-                {socialLinks.map(social => (
-                    <a href={social.link} target="_blank" class="social-btn" aria-label={social.name}>
-                        {social.image ? (
-                            <img src={social.image} alt={social.name} class="social-img"/>
-                        ) : (
-                            <i class={social.icon}></i>
-                        )}
-                    </a>
-                ))}
-            </div>
-
-            <div class="cp-badges">
-                {cpProfiles.map(cp => (
-                    <a href={cp.link} target="_blank" class="cp-link">
-                        <img src={cp.image} alt={cp.name} class={`cp-img ${cp.class || ''}`} />
-                        {cp.name}
-                    </a>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <section class="core-skills-section">
-        <h2 class="section-title">Core Expertise</h2>
-        <div class="core-skills-grid">
-            {coreSkills.map((skill) => (
-                <div class="core-skill-item">
-                    <div class="skill-info">
-                        <span class="skill-name">{skill.name}</span>
-                        <span class="skill-percentage">{skill.level}%</span>
-                    </div>
-                    <div class="progress-container-core">
-                        <div class="progress-bar-core" style={`width: ${skill.level}%;`}></div>
-                    </div>
+    <div id="home" class="view-section active">
+        <section class="hero">
+            <div class="profile-header">
+                <h1>Jafet <span class="text-gradient">"Zum"</span> Hernandez</h1>
+                <p class="tagline"> Competitive Programmer & WIP Computer Engineer | UNAM ᴍx</p>
+                
+                <div class="bio-text">
+                    <p>
+                        Computer Engineering student passionate about C++, algorithms, and Competitive Programming. 
+                        Currently competing in ICPC and building educational tools for the community.
+                    </p>
                 </div>
-            ))}
-        </div>
-    </section>
+                
+                <div class="social-links">
+                    {socialLinks.map(social => (
+                        <a href={social.link} target="_blank" class="social-btn" aria-label={social.name}>
+                            {social.image ? (
+                                <img src={social.image} alt={social.name} class="social-img"/>
+                            ) : (
+                                <i class={social.icon}></i>
+                            )}
+                        </a>
+                    ))}
+                </div>
 
-    <section class="skills-section">
-      <h2 class="section-title">Technical Skills & Tools</h2>
-      <div class="grid-skills">
-        {skills.map((skill) => (
-          <SkillCard class="skill-card-compact">
-            <div class="skill-content-compact">
-                <i class={`${skill.icon} icon-small`}></i>
-                <span class="skill-name-compact">{skill.name}</span>
-            </div>
-          </SkillCard>
-        ))}
-      </div>
-    </section>
-
-    <section class="exp-edu-section">
-        <div class="columns-container">
-            <div class="column-block">
-                <h2 class="section-title">Experience</h2>
-                <div class="timeline">
-                    {experience.map((item) => (
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-date">{item.date}</span>
-                                <h3 class="role-title">{item.role}</h3>
-                                <span class="company-name">{item.company}</span>
-                                <p class="description-text">{item.description}</p>
-                            </div>
-                        </div>
+                <div class="cp-badges">
+                    {cpProfiles.map(cp => (
+                        <a href={cp.link} target="_blank" class="cp-link">
+                            <img src={cp.image} alt={cp.name} class={`cp-img ${cp.class || ''}`} />
+                            {cp.name}
+                        </a>
                     ))}
                 </div>
             </div>
+        </section>
+    </div>
 
-            <div class="column-block">
-                <h2 class="section-title">Education</h2>
-                <div class="timeline">
-                    {education.map((item) => (
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-date">{item.date}</span>
-                                <h3 class="role-title">{item.role}</h3>
-                                <span class="company-name">{item.company}</span>
-                                <p class="description-text">{item.description}</p>
-                            </div>
+    <div id="skills" class="view-section hidden">
+        <section class="core-skills-section">
+            <h2 class="section-title">Core Expertise</h2>
+            <div class="core-skills-grid">
+                {coreSkills.map((skill) => (
+                    <div class="core-skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">{skill.name}</span>
+                            <span class="skill-percentage">{skill.level}%</span>
                         </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects-section">
-        <h2 class="section-title">Outstanding Projects</h2>
-        <div class="grid-projects">
-            {projects.map((project) => (
-                <Card class="project-card-styled">
-                    
-                    <div 
-                        class="project-status-badge" 
-                        style={`
-                            border-color: ${project.color}4D; 
-                            background: ${project.color}1A;
-                        `}
-                    >
-                        <span 
-                            class="blinking-dot-project"
-                            style={`
-                                background-color: ${project.color};
-                                box-shadow: 0 0 8px ${project.color}99;
-                            `}
-                        ></span>
-                        <span 
-                            class="status-text"
-                            style={`color: ${project.color};`}
-                        >
-                            {project.status}
-                        </span>
+                        <div class="progress-container-core">
+                            <div class="progress-bar-core" style={`width: ${skill.level}%;`}></div>
+                        </div>
                     </div>
-                    
-                    <h3 class="project-title-styled">{project.title}</h3>
-                    
-                    <p class="project-desc-styled">{project.description}</p>
-                    
-                    <div class="tags-centered">
-                        {project.tags.map((tag) => (
-                            <span 
-                                class="tag-pill"
-                                style={`
-                                    color: ${project.color};
-                                    border-color: ${project.color}33;
-                                `}
-                            >
-                                {tag}
-                            </span>
+                ))}
+            </div>
+        </section>
+
+        <section class="skills-section" style="margin-top: 3rem;">
+            <h2 class="section-title">Technical Skills & Tools</h2>
+            <div class="grid-skills">
+                {skills.map((skill) => (
+                <SkillCard class="skill-card-compact">
+                    <div class="skill-content-compact">
+                        <i class={`${skill.icon} icon-small`}></i>
+                        <span class="skill-name-compact">{skill.name}</span>
+                    </div>
+                </SkillCard>
+                ))}
+            </div>
+        </section>
+    </div>
+
+    <div id="resume" class="view-section hidden">
+        <section class="exp-edu-section">
+            <div class="columns-container">
+                <div class="column-block">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="timeline">
+                        {experience.map((item) => (
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">{item.date}</span>
+                                    <h3 class="role-title">{item.role}</h3>
+                                    <span class="company-name">{item.company}</span>
+                                    <p class="description-text">{item.description}</p>
+                                </div>
+                            </div>
                         ))}
                     </div>
+                </div>
 
-                </Card>
-            ))}
-        </div>
-    </section>
+                <div class="column-block">
+                    <h2 class="section-title">Education</h2>
+                    <div class="timeline">
+                        {education.map((item) => (
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">{item.date}</span>
+                                    <h3 class="role-title">{item.role}</h3>
+                                    <span class="company-name">{item.company}</span>
+                                    <p class="description-text">{item.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="portfolio" class="view-section hidden">
+        <section class="projects-section">
+            <h2 class="section-title">Outstanding Projects</h2>
+            <div class="grid-projects">
+                {projects.map((project) => (
+                    <Card class="project-card-styled">
+                        <div class="project-status-badge" style={`border-color: ${project.color}4D; background: ${project.color}1A;`}>
+                            <span class="blinking-dot-project" style={`background-color: ${project.color}; box-shadow: 0 0 8px ${project.color}99;`}></span>
+                            <span class="status-text" style={`color: ${project.color};`}>{project.status}</span>
+                        </div>
+                        <h3 class="project-title-styled">{project.title}</h3>
+                        <p class="project-desc-styled">{project.description}</p>
+                        <div class="tags-centered">
+                            {project.tags.map((tag) => (
+                                <span class="tag-pill" style={`color: ${project.color}; border-color: ${project.color}33;`}>{tag}</span>
+                            ))}
+                        </div>
+                    </Card>
+                ))}
+            </div>
+        </section>
+    </div>
 
   </main>
 </Layout>
 
+<script>
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('.view-section');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // 1. Quitar clase activa de todos los botones y secciones
+            navItems.forEach(nav => nav.classList.remove('active'));
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+                sec.classList.add('hidden');
+            });
+
+            // 2. Activar el botón clickeado
+            item.classList.add('active');
+
+            // 3. Mostrar la sección correspondiente
+            const targetId = item.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('active');
+            }
+        });
+    });
+</script>
+
 <style>
+  /* --- NAVBAR SUPERIOR --- */
+  .top-nav {
+      width: 100%;
+      padding: 2rem 0;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+  }
+
+  .nav-container {
+      display: flex;
+	  align-items: right;
+      gap: 2rem;
+  }
+
+  .nav-item {
+      background: none;
+      border: none;
+      color: #888;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+  }
+
+  .nav-item:hover {
+      color: #e0e0e0;
+  }
+
+  .nav-item.active {
+      color: #fff;
+      font-weight: bold;
+  }
+
+  /* El punto naranja o línea debajo del activo */
+  .nav-item.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #dd773c; /* Color naranja del tema */
+      border-radius: 2px;
+  }
+
+  /* --- LOGICA DE VISTAS --- */
+  .view-section {
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+      width: 100%;
+  }
+
+  .view-section.hidden {
+      display: none;
+  }
+
+  .view-section.active {
+      display: block;
+  }
+
+  @keyframes fadeIn {
+      to { opacity: 1; }
+  }
+
   /* --- GENERAL LAYOUT --- */
   .container {
     max-width: 1100px;
     margin: auto;
-    padding: 2rem 1rem;
+    padding: 0 1rem 4rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    min-height: 80vh; /* Asegura que ocupe buen espacio */
   }
 
   .text-gradient {
@@ -350,7 +431,7 @@ const projects = [
   }
 
   /* --- HERO & SOCIALS --- */
-  .profile-header { text-align: center; padding: 1rem; }
+  .profile-header { text-align: center; padding: 2rem 1rem; }
   .profile-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .tagline { font-size: 1.1rem; color: #d7d045; font-family: 'JetBrains Mono', monospace; margin-bottom: 1.5rem; }
   .bio-text { max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.6; opacity: 0.9; }
@@ -417,87 +498,17 @@ const projects = [
   .company-name { color: #B79BFF; font-size: 0.9rem; font-weight: 500; }
   .description-text { color: #b0b0b0; font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; }
 
-  /* --- PROJECTS (ESTILOS DINÁMICOS) --- */
-  .grid-projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.5rem;
-  }
-  
-  .project-card-styled {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     gap: 1.5rem;
-     padding: 2rem 1.5rem !important;
-  }
-
-  /* BADGE */
-  .project-status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      /* Background y border se inyectan en línea */
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      border: 1px solid; /* Color definido en línea */
-      margin-bottom: 0.5rem;
-  }
-
-  .status-text {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-  }
-
-  /* PUNTO PARPADEANTE */
-  .blinking-dot-project {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      /* Background y shadow se inyectan en línea */
-      animation: pulse-project 2s infinite ease-in-out;
-  }
-
-  @keyframes pulse-project {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(0.6); opacity: 0.5; }
-      100% { transform: scale(1); opacity: 1; }
-  }
-
-  .project-title-styled {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 700;
-  }
-
-  .project-desc-styled {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      line-height: 1.6;
-      margin: 0;
-      max-width: 90%;
-  }
-
-  .tags-centered {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-top: 0.5rem;
-  }
-
-  .tag-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      /* Color y borde se inyectan en línea */
-      background: rgba(255, 255, 255, 0.03); 
-      border: 1px solid;
-      padding: 0.3rem 0.8rem;
-      border-radius: 50px;
-  }
-
+  /* --- PROJECTS --- */
+  .grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+  .project-card-styled { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 1.5rem !important; }
+  .project-status-badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid; margin-bottom: 0.5rem; }
+  .status-text { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+  .blinking-dot-project { width: 8px; height: 8px; border-radius: 50%; animation: pulse-project 2s infinite ease-in-out; }
+  @keyframes pulse-project { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
+  .project-title-styled { margin: 0; font-size: 1.4rem; font-weight: 700; }
+  .project-desc-styled { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; margin: 0; max-width: 90%; }
+  .tags-centered { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 0.5rem; }
+  .tag-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; background: rgba(255, 255, 255, 0.03); border: 1px solid; padding: 0.3rem 0.8rem; border-radius: 50px; }
   .social-img { width: 1.5rem; height: 1.5rem; object-fit: contain; transition: transform 0.3s ease; }
   .cp-img { width: 1.2rem; height: 1.2rem; object-fit: contain; filter: brightness(0) invert(1); }
   .cp-img.cses-logo { width: 2.5rem; height: auto; filter: brightness(0) invert(1); }
