@@ -1,0 +1,28 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class:list={["card-base", className]}>
+  <slot />
+</div>
+
+<style>
+  .card-base {
+    background-color: rgba(67, 66, 68, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    height: fit-content;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+  }
+
+  /* Efecto hover */
+  .card-base:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+</style>

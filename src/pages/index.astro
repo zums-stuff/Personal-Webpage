@@ -1,16 +1,504 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import SkillCard from '../components/SkillCard.astro';
 
+// --- PROFILE DATA ---
+
+const socialLinks = [
+  { 
+    name: "Github",
+    icon: "devicon-github-original", 
+    link: "https://github.com/zums-stuff" 
+  },
+  { 
+    name: "LinkedIn",
+    icon: "devicon-linkedin-plain", 
+    link: "https://www.linkedin.com/in/zum-hernandez/" 
+  },
+  { 
+    name: "Email",
+    image: "https://cdn.simpleicons.org/gmail/white",
+    link: "mailto:jafet.hernandez.ed@gmail.com" 
+  },
+];
+
+const cpProfiles = [
+  { 
+    name: "Codeforces",
+    image: "https://cdn.simpleicons.org/codeforces/white", 
+    link: "https://codeforces.com/profile/zum" 
+  },
+  { 
+    name: "LeetCode", 
+    image: "https://cdn.simpleicons.org/leetcode/white", 
+    link: "https://leetcode.com/u/zum04/" 
+  },
+  { 
+    name: "CSES", 
+    image: "https://cses.fi/logo.png?1", 
+    link: "https://cses.fi/user/314973",
+    class: "cses-logo"
+  },
+];
+
+const coreSkills = [
+  { name: "C / C++", level: 85 },
+  { name: "Algorithms & DS", level: 80 },
+  { name: "Python", level: 40 },
+  { name: "C#", level: 65 },
+  { name: "Java", level: 75 },
+  { name: "HTML & CSS", level: 75 },
+];
+
+const skills = [
+  { name: "C / C++", icon: "devicon-cplusplus-plain colored" },
+  { name: "C#", icon: "devicon-csharp-plain colored" },
+  { name: "Python", icon: "devicon-python-plain colored" },
+  { name: "Java", icon: "devicon-java-plain colored" },
+  { name: "OpenGL", icon: "devicon-opengl-plain colored" },
+  { name: "Unity", icon: "devicon-unity-plain " },
+  { name: "Godot", icon: "devicon-godot-plain colored" },
+  { name: "Linux", icon: "devicon-linux-plain" },
+  { name: "Arch Linux", icon: "devicon-archlinux-plain colored" },
+  { name: "Git", icon: "devicon-git-plain colored" },
+  { name: "GitHub", icon: "devicon-github-original" },
+  { name: "Flutter", icon: "devicon-flutter-plain colored" },
+  { name: "LaTeX", icon: "devicon-latex-original" },
+  { name: "HTML5", icon: "devicon-html5-plain colored" },
+  { name: "CSS3", icon: "devicon-css3-plain colored" },
+  { name: "Astro", icon: "devicon-astro-plain colored" },
+  { name: "JavaScript", icon: "devicon-javascript-plain colored" },
+  { name: "Visual Studio 2022", icon: "devicon-visualstudio-plain colored" },
+  { name: "Visual Studio Code", icon: "devicon-vscode-plain colored" },
+  { name: "Obsidian", icon: "devicon-obsidian-plain colored" },
+  { name: "Illustrator", icon: "devicon-illustrator-plain" },
+];
+
+const experience = [
+  {
+    role: "Participant & Backend Dev",
+    company: "NASA International Space Apps Challenge",
+    date: "Oct 2025",
+    description: "Developed a Python-based backend using Flask for 'Meteor Atlas'. Implemented the NASA NEO API to serve processed data."
+  },
+  {
+    role: "Academic Coach",
+    company: "CPCFI - UNAM School of Engineering",
+    date: "Jun 2025 - Present",
+    description: "Mentoring aspiring competitive programmers in algorithms and data structures."
+  },
+  {
+    role: "Competitor (129th Place)",
+    company: "ICPC Gran Premio de México 2025",
+    date: "Mar 2025",
+    description: "Solved advanced algorithmic challenges under pressure, developing resilience and collaboration."
+  },
+  {
+    role: "Competitor (7th Place)",
+    company: "1st Abraham Macías Contest",
+    date: "Feb 2025",
+    description: "Solved 3 competitive problems in a high-pressure environment at ESCOM IPN."
+  }
+];
+
+const education = [	
+  {
+    role: "Bachelor of Computer Engineering",
+    company: "UNAM School of Engineering",
+    date: "Aug 2024 - Expected 2029",
+    description: "Focused on Software Engineering, Algorithms, and System Architecture. Active member of the Competitive Programming Club."
+  },
+  {
+	role: "High School Diploma",
+	company: "National Preparatory School No. 9 Pedro de Alba (UNAM)",
+	date: "Aug 2021 - Jun 2024",
+	description: "Specialized in Physics and Mathematics (Area 1). Graduated with a strong foundation in calculus and scientific reasoning."
+  },
+];
+
+// --- PROJECTS DATA (Con 'status' y 'color') ---
+const projects = [
+  {
+    title: "Meteor Atlas (NASA Space Apps)",
+    status: "FINISHED",
+    color: "#fbbf24", // Dorado/Amarillo (Winner)
+    description: "Simulation and analysis of asteroid impacts using Python, Flask, and the NASA API. Winner of local/global participation.",
+    tags: ["Python", "Flask", "NASA API"],
+    link: "https://github.com/zums-stuff/Meteor-Madness"
+  },
+  {
+    title: "CPCFI Learning Platform",
+    status: "DEPLOYED AND BUILDING",
+    color: "#10b981", // Verde Esmeralda (Deployed)
+    description: "Static website deployed on GitHub Pages to provide curated learning materials and editorials for competitive programming enthusiasts.",
+    tags: ["HTML", "CSS", "GitHub Pages"],
+    link: "https://zums-stuff.github.io/CPCFI-Webpage/"
+  },
+  {
+    title: "2D Animation Engine",
+    status: "FINISHED",
+    color: "#3b82f6", // Azul Brillante (Finished)
+    description: "Sequential animation system implemented in C++ and OpenGL. Applies linear algebra concepts (transformation matrices, vector spaces) to computer graphics.",
+    tags: ["C++", "OpenGL", "Linear Algebra"],
+    link: "https://github.com/zums-stuff"
+  },
+  {
+    title: "Competitive Programming Solutions",
+    status: "ACTIVE REPO",
+    color: "#8b5cf6", // Violeta (Active Repo)
+    description: "Automated massive repository with optimized solutions for Codeforces, LeetCode, and CSES. Personal reference for algorithms and data structures.",
+    tags: ["C++", "Algorithms", "Data Structures"],
+    link: "https://github.com/zums-stuff/Competitive-Programming"
+  },
+  {
+    title: "D&D-like Game System",
+    status: "PROTOTYPE (NOT DEPLOYED)",
+    color: "#f43f5e", // Rosa/Rojo (Prototype)
+    description: "RPG game architecture built in Unity with basic multiplayer support, designed from scratch using C# and standard packages.",
+    tags: ["Unity", "C#", "Game Dev"],
+    link: "https://github.com/zums-stuff"
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Jafet 'Zum' Hernández | Portfolio">
+  <main class="container">
+    
+    <section class="hero">
+        <div class="profile-header">
+            <h1>Jafet <span class="text-gradient">"Zum"</span> Hernández</h1>
+            <p class="tagline"> Competitive Programmer & WIP Computer Engineer | UNAM ᴍx</p>
+            
+            <div class="bio-text">
+                <p>
+                    Computer Engineering student passionate about C++, algorithms, and Competitive Programming. 
+                    Currently competing in ICPC and building educational tools for the community.
+                </p>
+            </div>
+            
+            <div class="social-links">
+                {socialLinks.map(social => (
+                    <a href={social.link} target="_blank" class="social-btn" aria-label={social.name}>
+                        {social.image ? (
+                            <img src={social.image} alt={social.name} class="social-img"/>
+                        ) : (
+                            <i class={social.icon}></i>
+                        )}
+                    </a>
+                ))}
+            </div>
+
+            <div class="cp-badges">
+                {cpProfiles.map(cp => (
+                    <a href={cp.link} target="_blank" class="cp-link">
+                        <img src={cp.image} alt={cp.name} class={`cp-img ${cp.class || ''}`} />
+                        {cp.name}
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <section class="core-skills-section">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="core-skills-grid">
+            {coreSkills.map((skill) => (
+                <div class="core-skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">{skill.name}</span>
+                        <span class="skill-percentage">{skill.level}%</span>
+                    </div>
+                    <div class="progress-container-core">
+                        <div class="progress-bar-core" style={`width: ${skill.level}%;`}></div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <section class="skills-section">
+      <h2 class="section-title">Technical Skills & Tools</h2>
+      <div class="grid-skills">
+        {skills.map((skill) => (
+          <SkillCard class="skill-card-compact">
+            <div class="skill-content-compact">
+                <i class={`${skill.icon} icon-small`}></i>
+                <span class="skill-name-compact">{skill.name}</span>
+            </div>
+          </SkillCard>
+        ))}
+      </div>
+    </section>
+
+    <section class="exp-edu-section">
+        <div class="columns-container">
+            <div class="column-block">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    {experience.map((item) => (
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">{item.date}</span>
+                                <h3 class="role-title">{item.role}</h3>
+                                <span class="company-name">{item.company}</span>
+                                <p class="description-text">{item.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div class="column-block">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    {education.map((item) => (
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">{item.date}</span>
+                                <h3 class="role-title">{item.role}</h3>
+                                <span class="company-name">{item.company}</span>
+                                <p class="description-text">{item.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <h2 class="section-title">Outstanding Projects</h2>
+        <div class="grid-projects">
+            {projects.map((project) => (
+                <Card class="project-card-styled">
+                    
+                    <div 
+                        class="project-status-badge" 
+                        style={`
+                            border-color: ${project.color}4D; 
+                            background: ${project.color}1A;
+                        `}
+                    >
+                        <span 
+                            class="blinking-dot-project"
+                            style={`
+                                background-color: ${project.color};
+                                box-shadow: 0 0 8px ${project.color}99;
+                            `}
+                        ></span>
+                        <span 
+                            class="status-text"
+                            style={`color: ${project.color};`}
+                        >
+                            {project.status}
+                        </span>
+                    </div>
+                    
+                    <h3 class="project-title-styled">{project.title}</h3>
+                    
+                    <p class="project-desc-styled">{project.description}</p>
+                    
+                    <div class="tags-centered">
+                        {project.tags.map((tag) => (
+                            <span 
+                                class="tag-pill"
+                                style={`
+                                    color: ${project.color};
+                                    border-color: ${project.color}33;
+                                `}
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+
+                </Card>
+            ))}
+        </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* --- GENERAL LAYOUT --- */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .text-gradient {
+    background: linear-gradient(45deg, #dd773c, #5d47a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    border-left: 5px solid #B79BFF;
+    padding-left: 1rem;
+    letter-spacing: -0.5px;
+  }
+
+  /* --- HERO & SOCIALS --- */
+  .profile-header { text-align: center; padding: 1rem; }
+  .profile-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .tagline { font-size: 1.1rem; color: #d7d045; font-family: 'JetBrains Mono', monospace; margin-bottom: 1.5rem; }
+  .bio-text { max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.6; opacity: 0.9; }
+  .social-links { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
+  
+  .social-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 3rem; height: 3rem; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0; text-decoration: none;
+    font-size: 1.5rem; transition: all 0.3s ease;
+  }
+  .social-btn:hover { background: #B79BFF; color: #000; transform: translateY(-3px); }
+
+  .cp-badges { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .cp-link {
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+    background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px; color: #fff; text-decoration: none; font-size: 0.9rem; transition: 0.3s;
+  }
+  .cp-link:hover { border-color: #2dd4bf; background: rgba(45, 212, 191, 0.1); }
+
+  /* --- CORE EXPERTISE --- */
+  .core-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+  }
+  .core-skill-item { display: flex; flex-direction: column; gap: 0.5rem; }
+  .skill-info { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+  .skill-percentage { color: #2dd4bf; }
+  .progress-container-core { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+  .progress-bar-core { height: 100%; background: linear-gradient(90deg, #d4832d, #734091); border-radius: 3px; }
+
+  /* --- SKILLS CARDS --- */
+  .grid-skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .skill-card-compact { width: fit-content !important; }
+  .skill-content-compact { display: flex; align-items: center; justify-content: center; gap: 0.8rem; }
+  .icon-small { font-size:1.1rem; flex-shrink: 0; text-align: center; }
+  .skill-name-compact { font-size: 0.85rem; font-weight: 500; white-space: nowrap; }
+
+  /* --- EXPERIENCE & EDUCATION --- */
+  .columns-container {
+      display: flex; flex-direction: row; justify-content: space-between;
+      align-items: flex-start; gap: 3rem; width: 100%;
+  }
+  .column-block { flex: 1; min-width: 0; }
+
+  @media (max-width: 768px) {
+      .columns-container { flex-direction: column; gap: 4rem; }
+  }
+
+  .timeline { position: relative; border-left: 2px solid rgba(255, 255, 255, 0.1); padding-left: 2rem; }
+  .timeline-item { position: relative; margin-bottom: 3rem; word-break: break-word; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-marker {
+    position: absolute; left: -2.4rem; top: 0.3rem; 
+    width: 12px; height: 12px; border-radius: 50%; background: #2dd4bf; box-shadow: 0 0 0 4px #0a0a0a;
+  }
+  .timeline-content { display: flex; flex-direction: column; gap: 0.3rem; }
+  .timeline-date { font-family: 'JetBrains Mono', monospace; color: #6c757d; font-size: 0.85rem; margin-bottom: 0.2rem; }
+  .role-title { font-size: 1.1rem; color: #fff; margin: 0; font-weight: bold; }
+  .company-name { color: #B79BFF; font-size: 0.9rem; font-weight: 500; }
+  .description-text { color: #b0b0b0; font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; }
+
+  /* --- PROJECTS (ESTILOS DINÁMICOS) --- */
+  .grid-projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+  }
+  
+  .project-card-styled {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1.5rem;
+     padding: 2rem 1.5rem !important;
+  }
+
+  /* BADGE */
+  .project-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      /* Background y border se inyectan en línea */
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      border: 1px solid; /* Color definido en línea */
+      margin-bottom: 0.5rem;
+  }
+
+  .status-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+  }
+
+  /* PUNTO PARPADEANTE */
+  .blinking-dot-project {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      /* Background y shadow se inyectan en línea */
+      animation: pulse-project 2s infinite ease-in-out;
+  }
+
+  @keyframes pulse-project {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.6); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+  }
+
+  .project-title-styled {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+  }
+
+  .project-desc-styled {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 90%;
+  }
+
+  .tags-centered {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+  }
+
+  .tag-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      /* Color y borde se inyectan en línea */
+      background: rgba(255, 255, 255, 0.03); 
+      border: 1px solid;
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+  }
+
+  .social-img { width: 1.5rem; height: 1.5rem; object-fit: contain; transition: transform 0.3s ease; }
+  .cp-img { width: 1.2rem; height: 1.2rem; object-fit: contain; filter: brightness(0) invert(1); }
+  .cp-img.cses-logo { width: 2.5rem; height: auto; filter: brightness(0) invert(1); }
+</style>

@@ -1,0 +1,127 @@
+---
+// src/layouts/Layout.astro
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Portafolio Profesional" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+	</head>
+	<head>
+    	<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+	</head>
+	<body>
+		<div class="glow-one"></div>
+		<div class="glow-two"></div>
+		<div class="glow-three"></div>
+		<div class="glow-four"></div>
+		<div class="glow-five"></div>
+		<div class="glow-six"></div>
+		<div class="glow-seven"></div>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--bg-color: #020202;
+		--text-color: #e0e0e0;
+	}
+	html {
+		font-family: 'JetBrains Mono', monospace;
+		background: var(--bg-color);
+		color: var(--text-color);
+		overflow-x: hidden;
+	}
+	body {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		min-height: 100vh;
+	}
+	
+	/* Configuración de las luces ambientales */
+	.glow-one {
+		position: absolute;
+		top: -5%;
+		left: 40%;
+		width: 40vw;
+		height: 40vw;
+		background: radial-gradient(circle, rgba(76, 29, 149, 0.25) 0%, rgba(0,0,0,0) 70%);
+		filter: blur(80px);
+		z-index: -1;
+	}
+	.glow-three {
+		position: absolute;
+		top: 3%;
+		left: 22%;
+		width: 20vw;
+		height: 20vw;
+		background: radial-gradient(circle, rgba(47, 145, 148, 0.25) 0%, rgba(0,0,0,0) 70%);
+		filter: blur(80px);
+		z-index: -1;
+	}
+	.glow-two {
+		position: absolute;
+		bottom: 10%;
+		right: -5%;
+		width: 35vw;
+		height: 35vw;
+		background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, rgba(0,0,0,0) 70%);
+		filter: blur(80px);
+		z-index: -1;
+	}
+	.glow-four {
+		position: absolute;
+		top: 14%;
+		left: 0%;
+		width: 20vw;
+		height: 20vw;
+		background: radial-gradient(circle, rgba(176, 83, 50, 0.25) 0%, rgba(0,0,0,0) 70%);
+		filter: blur(70px);
+		z-index: -1;
+	}
+	.glow-five {
+		position: absolute;
+		top: 26%;
+		left: 0%;
+		width: 20vw;
+		height: 20vw;
+		background: radial-gradient(circle, rgba(89, 177, 54, 0.25) 0%, rgba(0,0,0,0) 70%);
+		filter: blur(70px);
+		z-index: -1;
+	}
+	.glow-six {
+		position: absolute;
+		top: 35%;
+		left: 0%;
+		width: 20vw;
+		height: 20vw;
+		background: radial-gradient(circle, rgba(177, 54, 64, 0.25) 0%, rgba(0,0,0,0) 70%);
+		filter: blur(70px);
+		z-index: -1;
+	}
+	.glow-seven {
+		position: absolute;
+		top: 70.5%;
+		left: 0%;
+		width: 20vw;
+		height: 20vw;
+		background: radial-gradient(circle, rgba(128, 177, 54, 0.25) 0%, rgba(0,0,0,0) 70%);
+		filter: blur(70px);
+		z-index: -1;
+	}
+</style>
