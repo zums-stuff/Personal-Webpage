@@ -178,7 +178,7 @@ const projects = [
         <section class="hero">
             <div class="profile-header">
                 <h1>Jafet <span class="text-gradient">"Zum"</span> Hernandez</h1>
-                <p class="tagline"> Competitive Programmer & WIP Computer Engineer | UNAM ᴍx</p>
+                <span class="tagline">> Competitive Programmer & WIP Computer Engineer<div class = "cursor" style="white-space: nowrap;">_</div></span>
                 
                 <div class="bio-text">
                     <p>
@@ -349,7 +349,7 @@ const projects = [
 
   .nav-container {
       display: flex;
-	  align-items: right;
+      align-items: right;
       gap: 2rem;
   }
 
@@ -490,7 +490,7 @@ const projects = [
   .timeline-item:last-child { margin-bottom: 0; }
   .timeline-marker {
     position: absolute; left: -2.4rem; top: 0.3rem; 
-    width: 12px; height: 12px; border-radius: 50%; background: #2dd4bf; box-shadow: 0 0 0 4px #0a0a0a;
+    width: 12px; height: 12px; border-radius: 50%; background: #9575bf; box-shadow: 0 0 0 4px #0a0a0a;
   }
   .timeline-content { display: flex; flex-direction: column; gap: 0.3rem; }
   .timeline-date { font-family: 'JetBrains Mono', monospace; color: #6c757d; font-size: 0.85rem; margin-bottom: 0.2rem; }
@@ -500,13 +500,51 @@ const projects = [
 
   /* --- PROJECTS --- */
   .grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
-  .project-card-styled { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; padding: 2rem 1.5rem !important; }
+  
+  .project-card-styled { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 1.5rem; 
+      padding: 2rem 1.5rem !important; 
+  }
+  
   .project-status-badge { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid; margin-bottom: 0.5rem; }
   .status-text { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
   .blinking-dot-project { width: 8px; height: 8px; border-radius: 50%; animation: pulse-project 2s infinite ease-in-out; }
   @keyframes pulse-project { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
-  .project-title-styled { margin: 0; font-size: 1.4rem; font-weight: 700; }
-  .project-desc-styled { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; margin: 0; max-width: 90%; }
+  
+.cursor {
+	display: inline-block;
+	width: 0.7ch;
+	margin-left: 0.25rem;
+	font-weight: 700;
+	color: #d7d045;
+	animation: blink-cursor 1s steps(1, start) infinite;
+	-webkit-font-smoothing: antialiased;
+}
+
+@keyframes blink-cursor {
+	50% { opacity: 0; }
+}
+
+  .project-title-styled { 
+      margin: 0; 
+      font-size: 1.4rem; 
+      font-weight: 700;
+      text-align: center;
+  }
+  
+  /* CORRECCIÓN AQUÍ: Se eliminó max-width y se aseguró width: 100% */
+  .project-desc-styled { 
+      font-size: 0.95rem; 
+      opacity: 0.8; 
+      line-height: 1.6; 
+      margin: 0;
+      width: 100%; /* Ocupa todo el ancho disponible */
+      text-align: center; /* Centra el texto dentro de ese ancho */
+  }
+  
   .tags-centered { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 0.5rem; }
   .tag-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; background: rgba(255, 255, 255, 0.03); border: 1px solid; padding: 0.3rem 0.8rem; border-radius: 50px; }
   .social-img { width: 1.5rem; height: 1.5rem; object-fit: contain; transition: transform 0.3s ease; }
