@@ -1,0 +1,17 @@
+/* Core Expertise */
+.core-skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+.core-skill-item { display: flex; flex-direction: column; gap: 0.5rem; }
+.skill-info { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+.skill-percentage { color: #2dd4bf; }
+.progress-container-core { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; }
+.progress-bar-core { height: 100%; background: linear-gradient(90deg, #d4832d, #734091); border-radius: 3px; }
+
+/* Technical Skills Cards */
+.grid-skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.skill-card-compact { width: fit-content !important; }
+.skill-content-compact { display: flex; align-items: center; justify-content: center; gap: 0.8rem; }
+.icon-small { font-size:1.1rem; flex-shrink: 0; text-align: center; }
+.skill-name-compact { font-size: 0.85rem; font-weight: 500; white-space: nowrap; }

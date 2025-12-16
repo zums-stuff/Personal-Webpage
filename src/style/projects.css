@@ -1,0 +1,39 @@
+.grid-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+
+.project-card-image {
+    padding: 0 !important; overflow: hidden; display: flex;
+    flex-direction: column; height: 100%;
+}
+
+.project-image-wrapper {
+    position: relative; width: 100%; height: 220px; background: #1a1a1a;
+}
+.project-img-cover { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6); }
+.project-img-placeholder { width: 100%; height: 100%; }
+
+.project-status-badge {
+    position: absolute; top: 10px; left: 10px;
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid;
+    background: rgba(0,0,0,0.5); z-index: 10;
+}
+.status-text { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+.blinking-dot-project { width: 8px; height: 8px; border-radius: 50%; animation: pulse-project 2s infinite ease-in-out; }
+@keyframes pulse-project { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(0.6); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
+
+.project-content { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.project-title-styled { margin: 0; font-size: 1.4rem; font-weight: 700; text-align: center; }
+.project-desc-styled { font-size: 0.95rem; opacity: 0.8; line-height: 1.6; margin: 0; width: 100%; text-align: center; }
+
+.tags-left { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.tags-centered { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 0.5rem; }
+.tag-pill { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; background: rgba(255, 255, 255, 0.03); border: 1px solid; padding: 0.3rem 0.8rem; border-radius: 50px; }
+.tag-text { color: #888; font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; }
+
+.project-actions { margin-top: auto; }
+.action-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: #B79BFF; font-weight: bold; text-decoration: none;
+    font-size: 0.9rem; transition: gap 0.2s ease;
+}
+.action-btn:hover { gap: 0.8rem; color: #fff; }

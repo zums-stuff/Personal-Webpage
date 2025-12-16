@@ -1,0 +1,44 @@
+/* Timeline Layout */
+.columns-container {
+    display: flex; flex-direction: row; justify-content: space-between;
+    align-items: flex-start; gap: 3rem; width: 100%;
+}
+.column-block { flex: 1; min-width: 0; }
+
+@media (max-width: 768px) {
+    .columns-container { flex-direction: column; gap: 4rem; }
+}
+
+.timeline { position: relative; border-left: 2px solid rgba(255, 255, 255, 0.1); padding-left: 2rem; }
+.timeline-item { position: relative; margin-bottom: 3rem; word-break: break-word; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-marker {
+    position: absolute; left: -2.4rem; top: 0.3rem;
+    width: 12px; height: 12px; border-radius: 50%; background: #9575bf; box-shadow: 0 0 0 4px #0a0a0a;
+}
+.timeline-content { display: flex; flex-direction: column; gap: 0.3rem; }
+.timeline-date { font-family: 'JetBrains Mono', monospace; color: #6c757d; font-size: 0.85rem; margin-bottom: 0.2rem; }
+.role-title { font-size: 1.1rem; color: #fff; margin: 0; font-weight: bold; }
+.company-name { color: #B79BFF; font-size: 0.9rem; font-weight: 500; }
+.description-text { color: #b0b0b0; font-size: 0.9rem; line-height: 1.5; margin-top: 0.5rem; }
+
+/* Coursework Grid */
+.coursework-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem; list-style: none; padding: 0; margin: 0;
+}
+.course-item {
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px; padding: 0.8rem 1.2rem;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d1d5db;
+    display: flex; align-items: center; gap: 0.8rem;
+    min-height: 3.5rem; transition: all 0.3s ease; cursor: default; text-align: center;
+}
+.course-item:hover {
+    border-color: #dd773c; background: rgba(221, 119, 60, 0.1);
+    color: #fff; transform: translateY(-2px);
+}
+.course-icon {
+    width: 1.9rem; height: auto; object-fit: contain;
+    filter: brightness(0.8) invert(1);
+}
