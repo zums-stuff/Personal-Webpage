@@ -192,14 +192,14 @@ const projects = [
 ];
 
 const relevantCoursework = [
-  "Data Structures & Algorithms I and II",
-  "Object-Oriented Programming",
-  "Linear Algebra",
-  "Software Engineering",
-  "Multivariable Calculus",
-  "Diferential Ecuations",
-  "Automata Theory",
-  "Discrete Mathematics",
+  { name: "Data Structures & Algorithms", icon: "../public/icons/data-structure.png" },
+  { name: "Object-Oriented Programming", icon: "../public/icons/oop.png" },
+  { name: "Linear Algebra", icon: "../public/icons/math.png" },
+  { name: "Software Engineering", icon: "../public/icons/engineering.png" },
+  { name: "Multivariable Calculus", icon: "../public/icons/calculus.png" },
+  { name: "Differential Equations", icon: "../public/icons/diff-eq.png" },
+  { name: "Automata Theory", icon: "../public/icons/automata.png" },
+  { name: "Discrete Mathematics", icon: "../public/icons/discrete.png" },
 ];
 ---
 
@@ -333,7 +333,7 @@ const relevantCoursework = [
                                                 height: 8rem; 
                                                 width: 100%; 
                                                 object-fit: cover; 
-                                                object-position: ${i === 1 ? '50% 60%': (i === 2) ? '50% 20%' : (i === 5) ? '50% 70%' : 'center'}; 
+                                                object-position: ${i === 1 ? '50% 60%': (i === 2) ? '50% 20%' : (i === 5) ? '50% 55%' : 'center'}; 
                                                 border-radius: 5px;
                                             `}
                                         />
@@ -408,7 +408,7 @@ const relevantCoursework = [
                         </div>
 
                     </div>
-                    
+
                     <figure>
                         <Image src={platicaImg} alt="Platica CPCFI" style="width: 100%; height: auto; margin-top: 1rem; border-radius: 5px; object-fit: cover; object-position: 50% 20%;" />
                         <figcaption style="text-align: center; font-size: 0.9rem; color: #aaa; margin-top: 0.5rem;">
@@ -419,15 +419,20 @@ const relevantCoursework = [
                 </div>
             </div>
             <br>
+
             <hr style="color: #4e4e4eb8">
             <section class="coursework-section" style="margin-bottom: 3rem; margin-top: 0rem;">
             <h2 class="section-title">Relevant Coursework</h2>
             <ul class="coursework-grid">
                 {relevantCoursework.map((course) => (
-                    <li class="course-item">{course}</li>
+                    <li class="course-item">
+                        <img src={course.icon} alt="" class="course-icon" />
+                        <span>{course.name}</span>
+                    </li>
                 ))}
             </ul>
         </section>
+            
         </section>
 
     </div>
@@ -877,4 +882,48 @@ const relevantCoursework = [
   .fi-pic:hover {
       transform: scale(1.005);
   }
+
+  .coursework-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  .course-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.8rem 1.2rem; /* Un poco más de padding vertical */
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: #d1d5db;
+      /* Flexbox para alinear icono y texto */
+      display: flex;
+      align-items: center;
+      gap: 0.8rem; /* Espacio entre icono y texto */
+      min-height: 3.5rem;
+      transition: all 0.3s ease;
+      cursor: default;
+      text-align: center;
+  }
+
+  .course-item:hover {
+      border-color: #dd773c;
+      background: rgba(221, 119, 60, 0.1);
+      color: #fff;
+      transform: translateY(-2px);
+  }
+
+  .course-icon {
+      width: 1.9rem; /* Tamaño fijo */
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0.8) invert(1);
+  }
+  
+  /* Opcional: Si el icono es negro y quieres volverlo blanco con CSS */
+  /* .course-icon { filter: invert(1); } */
 </style>
