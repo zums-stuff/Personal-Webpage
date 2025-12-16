@@ -13,6 +13,7 @@ import acatlanImg from '../assets/images/acatla.jpg';
 import icpcImg from '../assets/images/icpc.jpg';
 import ieeextremeImg from '../assets/images/ieeextreme.jpg';
 import escomImg from '../assets/images/escom.jpg';
+import platicaImg from '../assets/images/platica.jpg';
 
 // --- DATA ---
 
@@ -152,7 +153,7 @@ const projects = [
     title: "Meteor Atlas (NASA Space Apps)",
     status: "FINISHED",
     color: "#fbbf24", 
-    description: "Simulation and analysis of asteroid impacts using Python, Flask, and the NASA API. Winner of local/global participation.",
+    description: "Simulation and analysis of asteroid impacts using Python, Flask, and the NASA API.\n\n",
     tags: ["Python", "Flask", "NASA API"],
     link: "https://github.com/zums-stuff/Meteor-Madness"
   },
@@ -168,7 +169,7 @@ const projects = [
     title: "2D Animation Engine",
     status: "FINISHED",
     color: "#3b82f6", 
-    description: "Sequential animation system implemented in C++ and OpenGL. Applies linear algebra concepts (transformation matrices, vector spaces) to computer graphics.",
+    description: "Sequential animation system implemented in C++ and OpenGL. Applies linear algebra concepts to computer graphics.",
     tags: ["C++", "OpenGL", "Linear Algebra"],
     link: "https://github.com/zums-stuff"
   },
@@ -184,7 +185,7 @@ const projects = [
     title: "D&D-like Game System",
     status: "PROTOTYPE (NOT DEPLOYED)",
     color: "#f43f5e", 
-    description: "RPG game architecture built in Unity with basic multiplayer support, designed from scratch using C# and standard packages.",
+    description: "RPG game architecture built in Unity with basic multiplayer support, designed from scratch using C# and standard packages in Unity.",
     tags: ["Unity", "C#", "Game Dev"],
     link: "https://github.com/zums-stuff"
   }
@@ -261,9 +262,10 @@ const relevantCoursework = [
 
             </div>
         </section>
-
-        <h2 class="section-title" style="margin-top: 3rem; border-color: rgb(175, 111, 89)"><span class="text-gradient">WHO AM I?</span></h2>
-            <div class="bio-text">
+        <br><br>
+        <hr style="color: rgba(230, 154, 135, 0.628)">
+        <h2 class="section-title" style="margin-top: 3rem; border-color: rgba(175, 111, 89, 0); text-align: center"><span class="text-gradient">WHO AM I?</span></h2>
+            <div class="bio-text" style="text-align: center">
                 <p>
                     Computer Engineering student passionate about C++, algorithms, and Competitive Programming. 
                     Currently studying Computer Engineering (Expected 2029), competing in ICPC, building educational tools for the community, and learning something new everyday.
@@ -309,18 +311,7 @@ const relevantCoursework = [
     </div>
 
     <div id="resume" class="view-section hidden">
-
-        <section class="coursework-section" style="margin-bottom: 3rem; margin-top: -3rem;">
-            <h2 class="section-title">Relevant Coursework</h2>
-            <ul class="coursework-grid">
-                {relevantCoursework.map((course) => (
-                    <li class="course-item">{course}</li>
-                ))}
-            </ul>
-        </section>
-        
-
-        <section class="exp-edu-section">
+        <section class="exp-edu-section" style="margin-top: -3rem">
             <div class="columns-container">
                 <div class="column-block">
                     <h2 class="section-title">Experience</h2>
@@ -383,11 +374,60 @@ const relevantCoursework = [
                         ))}
                     </div>
 
-                    <h2 class="section-title" style="margin-top: 6rem;">No sé que poner aquí</h2>
+                    <h2 class="section-title" style="margin-top: 3rem;">Languages & Soft Skills</h2>
                     <div class="timeline">
                         
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="role-title">Languages</h3>
+                                <p class="description-text" style="margin-top: 0.5rem;">
+                                    <strong style="color: #fff;">Spanish:</strong> Native Speaker <br>
+                                    <strong style="color: #fff;">English:</strong> Advanced (C1) - Technical Proficiency <br>
+                                    <strong style="color: #fff;">French:</strong> Basic Understanding (A1/A2)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 class="role-title">Soft Skills</h3>
+                                <p class="description-text" style="margin-top: 0.5rem;">
+                                    <strong style="color: #fff;">Leadership & Mentoring:</strong> Experienced in guiding students through complex algorithmic concepts as an Academic Coach.
+                                    <br><br>
+                                    <strong style="color: #fff;">Teamwork:</strong> Proven ability to collaborate under pressure in timed competitions (ICPC, IEEEXtreme, ...).
+                                    <br><br>
+                                    <strong style="color: #fff;">Adaptability:</strong> Quick learner, able to pick up new programming languages and technologies in small time periods.
+                                    <br><br>
+                                    <strong style="color: #fff;">Problem-Solving:</strong> Strong analytical skills honed through competitive programming and academic projects.
+                                    <br><br>
+                                    <strong style="color: #fff;">Communication:</strong> Effective communicator, able to explain technical concepts clearly to diverse audiences.
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
+                    
+                    <figure>
+                        <Image src={platicaImg} alt="Platica CPCFI" style="width: 100%; height: auto; margin-top: 1rem; border-radius: 5px; object-fit: cover; object-position: 50% 20%;" />
+                        <figcaption style="text-align: center; font-size: 0.9rem; color: #aaa; margin-top: 0.5rem;">
+                            Informative Lecture about CPCFI at UNAM School of Engineering.
+                        </figcaption>
+                    </figure>
+
+                </div>
             </div>
+            <br>
+            <hr style="color: #4e4e4eb8">
+            <section class="coursework-section" style="margin-bottom: 3rem; margin-top: 0rem;">
+            <h2 class="section-title">Relevant Coursework</h2>
+            <ul class="coursework-grid">
+                {relevantCoursework.map((course) => (
+                    <li class="course-item">{course}</li>
+                ))}
+            </ul>
+        </section>
         </section>
 
     </div>
