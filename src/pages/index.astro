@@ -3,7 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import SkillCard from '../components/SkillCard.astro';
 import { Image } from 'astro:assets';
+
+// Asegúrate de que la ruta sea correcta
 import profileImg from '../assets/images/Yo.jpg'; 
+import fiImg from '../assets/images/fi.jpg';
+import enp9Img from '../assets/images/enp9.jpg';
+import cpcfiImg from '../assets/images/cpcfi.jpg';
+import acatlanImg from '../assets/images/acatla.jpg';
+import icpcImg from '../assets/images/icpc.jpg';
+import ieeextremeImg from '../assets/images/ieeextreme.jpg';
+import escomImg from '../assets/images/escom.jpg';
 
 // --- DATA ---
 
@@ -20,7 +29,6 @@ const socialLinks = [
   },
   { 
     name: "Email",
-    // Usamos el icono de Gmail para que se vea la "M"
     image: "https://cdn.simpleicons.org/gmail/white",
     link: "mailto:jafet.hernandez.ed@gmail.com" 
   },
@@ -67,41 +75,58 @@ const skills = [
   { name: "Git", icon: "devicon-git-plain colored" },
   { name: "GitHub", icon: "devicon-github-original" },
   { name: "Flutter", icon: "devicon-flutter-plain colored" },
-  { name: "LaTeX", icon: "devicon-latex-original" },
+  { name: "LᴬTᴱX", icon: "devicon-latex-original" },
   { name: "HTML5", icon: "devicon-html5-plain colored" },
   { name: "CSS3", icon: "devicon-css3-plain colored" },
   { name: "Astro", icon: "devicon-astro-plain colored" },
   { name: "JavaScript", icon: "devicon-javascript-plain colored" },
   { name: "Visual Studio 2022", icon: "devicon-visualstudio-plain colored" },
   { name: "Visual Studio Code", icon: "devicon-vscode-plain colored" },
-  { name: "Obsidian", icon: "devicon-obsidian-plain colored" },
+  { name: "Obsidian", image: "https://cdn.simpleicons.org/obsidian/A882FF" },
   { name: "Illustrator", icon: "devicon-illustrator-plain" },
 ];
 
 const experience = [
   {
+    role: "Competitor",
+    company: "IEEEXtreme 19.0",
+    date: "Oct 2025",
+    description: "Collaborated in a team to solve 12 algorithmic problems in a 24-hour coding competition, enhancing teamwork and problem-solving skills.",
+    image: ieeextremeImg,
+  },
+  {
     role: "Participant & Backend Dev",
     company: "NASA International Space Apps Challenge",
     date: "Oct 2025",
-    description: "Developed a Python-based backend using Flask for 'Meteor Atlas'. Implemented the NASA NEO API to serve processed data."
+    description: "Developed a Python-based backend using Flask for 'Meteor Atlas'. Implemented the NASA NEO API to serve processed data.",
+  },
+  {
+    role: "Competitor (14th Place)",
+    company: "XVII Donald Knuth contest",
+    date: "Aug 2025",
+    description: "Competitor in the seventeenth edition of the Donald Knuth Contest at FES Acatlán, where I achieved 14th place out of 40, solving 2 problems during the contest.",
+    image: acatlanImg,
   },
   {
     role: "Academic Coach",
     company: "CPCFI - UNAM School of Engineering",
     date: "Jun 2025 - Present",
-    description: "Mentoring aspiring competitive programmers in algorithms and data structures."
+    description: "Mentoring aspiring competitive programmers in algorithms and data structures.",
+    image: cpcfiImg,
   },
   {
     role: "Competitor (129th Place)",
     company: "ICPC Gran Premio de México 2025",
     date: "Mar 2025",
-    description: "Solved advanced algorithmic challenges under pressure, developing resilience and collaboration."
+    description: "Solved advanced algorithmic challenges under pressure, developing resilience and collaboration.",
+    image: icpcImg,
   },
   {
     role: "Competitor (7th Place)",
     company: "1st Abraham Macías Contest",
     date: "Feb 2025",
-    description: "Solved 3 competitive problems in a high-pressure environment at ESCOM IPN."
+    description: "Solved 3 competitive problems in a high-pressure environment at ESCOM IPN.",
+    image: escomImg,
   }
 ];
 
@@ -110,13 +135,15 @@ const education = [
     role: "Bachelor of Computer Engineering",
     company: "UNAM School of Engineering",
     date: "Aug 2024 - Expected 2029",
-    description: "Focused on Software Engineering, Algorithms, and System Architecture. Active member of the Competitive Programming Club."
+    description: "Focused on Software Engineering, Algorithms, and System Architecture. Active member of the Competitive Programming Club.",
+    image: fiImg,
   },
   {
     role: "High School Diploma",
     company: "National Preparatory School No. 9 Pedro de Alba (UNAM)",
     date: "Aug 2021 - Jun 2024",
-    description: "Specialized in Physics and Mathematics (Area 1). Graduated with a strong foundation in calculus and scientific reasoning."
+    description: "Specialized in Physics and Mathematics (Area 1). Graduated with a strong foundation in calculus and scientific reasoning.",
+    image: enp9Img,
   },
 ];
 
@@ -162,6 +189,17 @@ const projects = [
     link: "https://github.com/zums-stuff"
   }
 ];
+
+const relevantCoursework = [
+  "Data Structures & Algorithms I and II",
+  "Object-Oriented Programming",
+  "Linear Algebra",
+  "Software Engineering",
+  "Multivariable Calculus",
+  "Diferential Ecuations",
+  "Automata Theory",
+  "Discrete Mathematics",
+];
 ---
 
 <Layout title="Jafet 'Zum' Hernandez | Portfolio">
@@ -169,14 +207,14 @@ const projects = [
   <nav class="top-nav">
     <div class="nav-container">
         <button class="nav-item active" data-target="home">Home</button>
-        <button class="nav-item" data-target="resume">Resume</button>
-        <button class="nav-item" data-target="portfolio">Portfolio</button>
+        <button class="nav-item" data-target="resume">About</button>
+        <button class="nav-item" data-target="portfolio">Works</button>
         <button class="nav-item" data-target="contact">Contact</button>
         
         <div class="nav-separator"></div>
 
-        <a href={import.meta.env.BASE_URL + "/public/Jafet_Hernandez Resume.pdf"} download="Jafet_Hernandez_Resume.pdf" class="nav-download-btn">
-            Download Resume
+        <a href={import.meta.env.BASE_URL + "resume.pdf"} download="Jafet_Hernandez_Resume.pdf" class="nav-download-btn" style="text-align: center">
+            Download Resume<i class="fas fa-download" style="font-size:0.8em;"></i>
         </a>
     </div>
   </nav>
@@ -184,7 +222,6 @@ const projects = [
   <main class="container main-content">
     
     <div id="home" class="view-section active">
-        
         <section class="hero">
             <div class="hero-grid">
                 
@@ -195,17 +232,12 @@ const projects = [
                 <div class="content-column">
                     <div class="profile-header">
                         <h1>Jafet <span class="text-gradient">"Zum"</span> Hernandez</h1>
-                        <span class="tagline">> [COMPETITIVE PROGRAMMER & WIP COMPUTER ENGINEER]<div class="cursor" style="white-space: nowrap;">_</div></span>
+                        <span class="tagline" style="margin-bottom:5rem">> [COMPETITIVE PROGRAMMER & WIP COMPUTER ENGINEER]<div class="cursor" style="white-space: nowrap;">_</div></span>
                         
-                        <div class="bio-text">
-                            <p>
-                                Computer Engineering student passionate about C++, algorithms, and Competitive Programming. 
-                                Currently competing in ICPC and building educational tools for the community.
-                            </p>
-                        </div>
-                        
+                        <p></p>
                         <div class="social-links">
                             {socialLinks.map(social => (
+                                
                                 <a href={social.link} target="_blank" class="social-btn" aria-label={social.name}>
                                     {social.image ? (
                                         <img src={social.image} alt={social.name} class="social-img"/>
@@ -230,13 +262,25 @@ const projects = [
             </div>
         </section>
 
+        <h2 class="section-title" style="margin-top: 3rem; border-color: rgb(175, 111, 89)"><span class="text-gradient">WHO AM I?</span></h2>
+            <div class="bio-text">
+                <p>
+                    Computer Engineering student passionate about C++, algorithms, and Competitive Programming. 
+                    Currently studying Computer Engineering (Expected 2029), competing in ICPC, building educational tools for the community, and learning something new everyday.
+                </p>
+            </div>
+
         <section class="skills-section" style="margin-top: 4rem;">
             <h2 class="section-title" style="text-align: center; border-color: rgba(0,0,0,0);">TECHNICAL SKILLS & TOOLS</h2>
             <div class="grid-skills">
                 {skills.map((skill) => (
                 <SkillCard class="skill-card-compact">
                     <div class="skill-content-compact">
-                        <i class={`${skill.icon} icon-small`}></i>
+                        {skill.image ? (
+                            <img src={skill.image} alt={skill.name} class="icon-small" style="width: 1.1rem; height: 1.1rem; object-fit:contain;" />
+                        ) : (
+                            <i class={`${skill.icon} icon-small`}></i>
+                        )}
                         <span class="skill-name-compact">{skill.name}</span>
                     </div>
                 </SkillCard>
@@ -265,12 +309,23 @@ const projects = [
     </div>
 
     <div id="resume" class="view-section hidden">
+
+        <section class="coursework-section" style="margin-bottom: 3rem; margin-top: -3rem;">
+            <h2 class="section-title">Relevant Coursework</h2>
+            <ul class="coursework-grid">
+                {relevantCoursework.map((course) => (
+                    <li class="course-item">{course}</li>
+                ))}
+            </ul>
+        </section>
+        
+
         <section class="exp-edu-section">
             <div class="columns-container">
                 <div class="column-block">
                     <h2 class="section-title">Experience</h2>
                     <div class="timeline">
-                        {experience.map((item) => (
+                        {experience.map((item, i) => (
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
@@ -278,6 +333,20 @@ const projects = [
                                     <h3 class="role-title">{item.role}</h3>
                                     <span class="company-name">{item.company}</span>
                                     <p class="description-text">{item.description}</p>
+                                    {item.image && (
+                                        <Image 
+                                            src={item.image} 
+                                            alt={item.company} 
+                                            style={`
+                                                margin-top: 0.5rem; 
+                                                height: 8rem; 
+                                                width: 100%; 
+                                                object-fit: cover; 
+                                                object-position: ${i === 1 ? '50% 60%': (i === 2) ? '50% 20%' : (i === 5) ? '50% 70%' : 'center'}; 
+                                                border-radius: 5px;
+                                            `}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -287,7 +356,7 @@ const projects = [
                 <div class="column-block">
                     <h2 class="section-title">Education</h2>
                     <div class="timeline">
-                        {education.map((item) => (
+                        {education.map((item, i) => (
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
@@ -295,13 +364,32 @@ const projects = [
                                     <h3 class="role-title">{item.role}</h3>
                                     <span class="company-name">{item.company}</span>
                                     <p class="description-text">{item.description}</p>
+                                    {item.image && (
+                                        <Image 
+                                            src={item.image} 
+                                            alt={item.company} 
+                                            style={`
+                                                margin-top: 0.5rem; 
+                                                height: 13rem; 
+                                                width: 100%; 
+                                                object-fit: cover; 
+                                                object-position: ${i === 0 ? '50% 90%' : 'center'}; 
+                                                border-radius: 5px;
+                                            `}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         ))}
                     </div>
-                </div>
+
+                    <h2 class="section-title" style="margin-top: 6rem;">No sé que poner aquí</h2>
+                    <div class="timeline">
+                        
+                    </div>
             </div>
         </section>
+
     </div>
 
     <div id="portfolio" class="view-section hidden">
@@ -340,7 +428,7 @@ const projects = [
                     
                     <div class="contact-methods">
                         <div class="method-item">
-                            <img src="https://cdn.simpleicons.org/gmail/white" alt="Gmail" style="width: 1.2rem; height: 1.2rem;" />
+                            <img src="https://cdn.simpleicons.org/gmail/white" alt="Gmail" style="width: 1.5rem; height: 1.5rem; margin-right: 0.5rem;" />
                             <span>jafet.hernandez.ed@gmail.com</span>
                         </div>
                     </div>
@@ -356,12 +444,13 @@ const projects = [
                             </a>
                         ))}
                     </div>
-					<a href={import.meta.env.BASE_URL + "/public/Jafet_Hernandez Resume.pdf"} download="Jafet_Hernandez_Resume.pdf" class="nav-download-btn">
-            			Download Resume
-        			</a>
-                </div>
 
-				
+                    <div class="download-container" style="margin-top: 2rem;">
+                        <a href={import.meta.env.BASE_URL + "resume.pdf"} download="Jafet_Hernandez_Resume.pdf" class="download-btn">
+                            Download Resume <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                </div>
 
                 <div class="contact-form-wrapper">
                     <h3 class="form-title">Send a Message</h3>
@@ -434,10 +523,10 @@ const projects = [
   .nav-container {
       display: flex;
       align-items: center;
-      gap: 1.5rem; /* Ajustado para que quepa el botón */
+      gap: 1.5rem;
       background: rgba(10, 10, 10, 0.7);
-      backdrop-filter: blur(12px);
-      padding: 0.6rem 1.5rem; /* Padding ajustado */
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 2rem;
       border-radius: 50px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -449,7 +538,7 @@ const projects = [
       border: none;
       color: #aaa;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
@@ -464,7 +553,7 @@ const projects = [
       background: #dd773c; border-radius: 50%;
   }
 
-  /* Separador vertical en el navbar */
+  /* Separador vertical */
   .nav-separator {
       width: 1px;
       height: 20px;
@@ -472,22 +561,30 @@ const projects = [
       margin: 0 0.5rem;
   }
 
-  /* Botón Download Resume en el Navbar */
+  /* BOTÓN DOWNLOAD RESUME NAVBAR */
   .nav-download-btn {
-      background: #B79BFF;
-      color: #000;
+      background: rgba(221, 119, 60, 0.2); /* Color naranja */
+      border: 1px solid #d4942d;
+      backdrop-filter: blur(5px);
+      color: #d8a57d;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.85rem;
       font-weight: bold;
       text-decoration: none;
-      padding: 0.5rem 1.2rem;
+      padding: 0.3rem 0.5rem;
+      padding-left:1.0rem;
       border-radius: 50px;
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: all 0.2s ease;
+      display: flex;
+      text-align: center;
+      gap: 0.5rem;
   }
   
   .nav-download-btn:hover {
-      background: #fff;
+      background: rgba(221, 119, 60, 0.7);
+      color: #ece0d9;
       transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(221, 119, 60, 0.4);
   }
 
   /* --- LOGICA DE VISTAS --- */
@@ -532,23 +629,28 @@ const projects = [
 
   .image-column { flex-shrink: 0; }
 
+  /* ESTILOS DE TU FOTO RESTAURADOS EXACTAMENTE */
   .profile-pic {
       width: 280px; 
       height: auto;
       border-radius: 5px; 
       border: 2px solid rgba(255, 255, 255, 0.1); 
       box-shadow: 0 0 25px rgba(221, 119, 60, 0.15); 
-      transform: rotate(3deg);
       transition: transform 0.3s ease;
+      transform: rotate(2deg);
+      filter: drop-shadow(0 0 10px rgba(114, 60, 221, 0.2));
   }
-  .profile-pic:hover { transform: scale(1.02) rotate(3deg); }
+  
+  .profile-pic:hover {
+      transform: scale(1.05) rotate(-0.5deg);
+  }
 
   .content-column { flex: 1; max-width: 650px; }
 
   .profile-header { text-align: center; padding: 1rem 0; }
   .profile-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .tagline { font-size: 1.1rem; color: #d7d045; font-family: 'JetBrains Mono', monospace; margin-bottom: 1.5rem; }
-  .bio-text { max-width: 100%; margin: 0 auto 1.5rem auto; line-height: 1.6; opacity: 0.9; }
+  .bio-text { max-width: 100%; margin: 0 auto 1.5rem auto; line-height: 1.6; opacity: 0.9; font-size: 1.2rem; color: #ccc; }
   .social-links { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
   
   @media (max-width: 900px) {
@@ -566,7 +668,7 @@ const projects = [
     color: #e0e0e0; text-decoration: none;
     font-size: 1.5rem; transition: all 0.3s ease;
   }
-  .social-btn:hover { background: #B79BFF; color: #000; transform: translateY(-3px); }
+  .social-btn:hover { background: rgb(173, 132, 37); color: #000; transform: translateY(-3px); border-color: #d4942d;}
 
   .cp-badges { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .cp-link {
@@ -574,7 +676,7 @@ const projects = [
     background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);
     border-radius: 8px; color: #fff; text-decoration: none; font-size: 0.9rem; transition: 0.3s;
   }
-  .cp-link:hover { border-color: #2dd4bf; background: rgba(45, 212, 191, 0.1); }
+  .cp-link:hover { border-color: #d4942d; background: rgba(212, 162, 45, 0.1); }
 
   /* --- CORE EXPERTISE --- */
   .core-skills-grid {
@@ -652,6 +754,19 @@ const projects = [
   .method-item { display: flex; align-items: center; gap: 1rem; color: #fff; font-family: 'JetBrains Mono', monospace; }
   .social-links-contact { display: flex; gap: 1rem; margin-bottom: 2rem; }
 
+  /* Botón Descarga Contacto */
+  .download-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #dd773c;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .download-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(183, 155, 255, 0.4); }
+
   /* Formulario */
   .contact-form-wrapper {
       background: rgba(15, 20, 25, 0.6); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);
@@ -670,4 +785,56 @@ const projects = [
       font-weight: bold; cursor: pointer; transition: background 0.3s;
   }
   .submit-btn:hover { background: #fff; }
+
+  /* --- RELEVANT COURSEWORK --- */
+  .coursework-grid {
+      display: grid;
+      /* Crea columnas automáticas que se ajustan al espacio (mínimo 200px ancho) */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  .course-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px; /* Bordes redondeados sutiles */
+      padding: 0.5rem 1.2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #d1d5db;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: default;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.5rem;
+  }
+
+  .course-item:hover {
+      border-color: #dd773c; /* Tu color de acento naranja */
+      background: rgba(221, 119, 60, 0.1);
+      color: #fff;
+      transform: translateY(-2px);
+  }
+
+  .fi-pic {
+      width: 300px; 
+      height: auto;
+      border-radius: 5px; 
+      border: 2px solid rgba(237, 229, 229, 0.1); 
+      box-shadow: 0 0 10px rgba(221, 119, 60, 0.15); 
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 3px rgba(114, 60, 221, 0.2));
+      margin: auto;
+      display: block;
+      margin-left: -2.5rem;
+  }
+  
+  .fi-pic:hover {
+      transform: scale(1.005);
+  }
 </style>
