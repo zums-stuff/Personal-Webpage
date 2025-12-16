@@ -209,7 +209,7 @@ const relevantCoursework = [
     <div class="nav-container">
         <button class="nav-item active" data-target="home">Home</button>
         <button class="nav-item" data-target="resume">About</button>
-        <button class="nav-item" data-target="portfolio">Works</button>
+        <button class="nav-item" data-target="portfolio">Work</button>
         <button class="nav-item" data-target="contact">Contact</button>
         
         <div class="nav-separator"></div>
@@ -438,8 +438,8 @@ const relevantCoursework = [
     </div>
 
     <div id="portfolio" class="view-section hidden">
-        <section class="projects-section">
-            <h2 class="section-title">Outstanding Projects</h2>
+        <section class="projects-section" style="margin-top: -3rem;">
+            <h2 class="section-title">Check out my latest <span class="text-gradient">Projects</span></h2>
             <div class="grid-projects">
                 {projects.map((project) => (
                     <Card class="project-card-styled">
